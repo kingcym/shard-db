@@ -23,7 +23,6 @@ public class Protis1 {
     }
 
     public void setUrl(String url) {
-        System.out.println("========================set Url=======================");
         this.url = url;
     }
 

@@ -20,17 +20,16 @@ public class UserService {
 
     public int inserUser(User user){
         int i = Math.abs(user.getName().hashCode()) % 3;
+        //指定对应的数据源
         if (i == 1){
             DatabaseContextHolder.setDatabaseType(DatabaseType.mybd1);
             System.out.println("===========mybd1================");
         } else if (i==2){
             DatabaseContextHolder.setDatabaseType(DatabaseType.mybd2);
             System.out.println("===========mybd2================");
-
         } else {
             DatabaseContextHolder.setDatabaseType(DatabaseType.mybd3);
             System.out.println("===========mybd3================");
-
         }
         int result = userMapper.inserUser(user);
         return result;
