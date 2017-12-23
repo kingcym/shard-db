@@ -1,0 +1,55 @@
+
+spring:
+  datasource:
+      initialSize: 10
+      minIdle: 10
+      maxActive: 50
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      filters: stat,log4j,config
+
+#mybatis
+mybatis:
+  mapper-locations: classpath:mapping/**/*Mapper.xml
+  type-aliases-package: com.example.db
+  config-location: classpath:mybatis-config.xml
+
+
+  ##mysql配置
+datasource1:
+  url: jdbc:mysql://127.0.0.1:3306/mybd1?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+  username: root
+  password: cym
+  driver-class-name: com.mysql.jdbc.Driver
+  type: com.alibaba.druid.pool.DruidDataSource
+
+##mysql配置
+datasource2:
+  url: jdbc:mysql://127.0.0.1:3306/mybd2?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+  username: root
+  password: cym
+  driver-class-name: com.mysql.jdbc.Driver
+  type: com.alibaba.druid.pool.DruidDataSource
+##mysql配置
+datasource3:
+  url: jdbc:mysql://127.0.0.1:3306/mybd3?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+  username: root
+  password: cym
+  driver-class-name: com.mysql.jdbc.Driver
+  type: com.alibaba.druid.pool.DruidDataSource
+
+#日志文件配置
+logging:
+  level:
+    java.sql: DEBUG
+##服务器配置
+server:
+  port: 8082
+  context-path: /bd
